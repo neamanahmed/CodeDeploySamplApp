@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+   CodeDeployApplication:
+     Type: AWS::CodeDeploy::Application
+     Properties:
+       ApplicationName: CodeDeploySA
+       ComputePlatform: Server
+   
+   CodeDeployGroup: 
+     Type: AWS::CodeDeploy::DeploymentGroup
+     Properties:
+      DeploymentConfigName: CodeDeployDefault.AllAtOnce
+      DeploymentGroupName: DemoDeploy
+      ApplicationName: !Ref CodeDeployApplication
+      Ec2TagFilters:
+        - Key: Environment
+          Value: Development
+          Type: KEY_AND_VALUE
+      ServiceRoleArn: arn:aws:iam::192384637041:role/CodeDeployRole
+     DependsOn: CodeDeployApplication
