@@ -16,5 +16,5 @@ Resources:
         - Key: Environment
           Value: Development
           Type: KEY_AND_VALUE
-      ServiceRoleArn: arn:aws:iam::192384637041:role/CodeDeployRole
+      ServiceRoleArn: arn:aws:iam::<123456789>:role/CodeDeployRole
      DependsOn: CodeDeployApplication
